@@ -1,14 +1,19 @@
+import sys
+
 from PIL import Image
 from PIL import ImageFilter
 
+#load args
+args = sys.argv
+
 #load cat image
-catImg = Image.open("dog.jpg")
+catImg = Image.open(args[1])
 
 #Blur cat image
 blurCatImg = catImg.filter(ImageFilter.GaussianBlur(radius=5))
 
 #load mask image
-maskImg = Image.open("mask.png")
+maskImg = Image.open(args[2])
 
 #gray mask image
 grayMaskImg = maskImg.convert('LA')
